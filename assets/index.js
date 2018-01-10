@@ -20,7 +20,7 @@ function ticketFetch() {
 	  function(tickets) {
 
 	  	//make sure tickets are being grabbed with console.log of tickets
-	    console.log(tickets);
+	    console.log(tickets.tickets[0].url);
 
 	    //Get number of tickets and set an array length minus 1
 		arrayLength = tickets.count - 1;
@@ -40,3 +40,16 @@ function ticketFetch() {
 	);
 }
 
+/* 
+
+var url = "https://z3nbgoff.zendesk.com/api/v2/tickets.json?page=1";
+
+while (url !== null) {
+
+    code block to be executed
+
+	url = tickets.next_page
+}
+
+
+*/
