@@ -34,8 +34,6 @@ function ticketFetch() {
 
 /* 
 
-Test making multiple 'fetchItem' requests to different endpoints.
-
 Ideally you'd want to make one GET to the page, check to see if next_page equals null.
 
 If null, then move on. If not null, then run the function.
