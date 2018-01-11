@@ -1,18 +1,7 @@
-// Initialise the Zendesk JavaScript API client
-// https://developer.zendesk.com/apps/docs/apps-v2
-var client = ZAFClient.init();
-client.invoke('resize', { width: '100%', height: '200px' });
-
-//Set tickets endpoint and define GET call
-var fetchItem = {
-  url: 'https://z3ngoff.zendesk.com/api/v2/tickets.json',
-  cors: true,
-  type: 'GET',
-  dataType: 'json'
-};
-
 //Create function to initialize GET call
 function ticketFetch() {
+
+	// Initialise the Zendesk JavaScript API client
 	var client = ZAFClient.init();
 
 	//Fetch tickets endpoint
@@ -21,6 +10,9 @@ function ticketFetch() {
 
 	  	//make sure tickets are being grabbed with console.log of tickets
 	    console.log(tickets.tickets[0].url);
+
+	    //Check to see what we're getting for next_page
+	    console.log("next_pagetest = " + tickets.next_page);
 
 	    //Get number of tickets and set an array length minus 1
 		arrayLength = tickets.count - 1;
@@ -42,14 +34,11 @@ function ticketFetch() {
 
 /* 
 
-var url = "https://z3nbgoff.zendesk.com/api/v2/tickets.json?page=1";
+Test making multiple 'fetchItem' requests to different endpoints.
 
-while (url !== null) {
+Ideally you'd want to make one GET to the page, check to see if next_page equals null.
 
-    code block to be executed
-
-	url = tickets.next_page
-}
+If null, then move on. If not null, then run the function.
 
 
 */
