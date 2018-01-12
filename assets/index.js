@@ -4,9 +4,13 @@ function ticketFetch() {
 	// Initialise the Zendesk JavaScript API client
 	var client = ZAFClient.init();
 
+	var url = '/api/v2/tickets.json';
+
 	//Fetch tickets endpoint
-	client.request('/api/v2/tickets.json').then(
+	client.request(url).then(
 	  function(tickets) {
+
+
 
 	  	//make sure tickets are being grabbed with console.log of tickets
 	    console.log(tickets.tickets[0].url);
